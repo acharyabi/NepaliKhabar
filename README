@@ -1,0 +1,17 @@
+# After defining models:
+# from db import engine
+# from models import Base
+# Base.metadata.create_all(bind=engine)
+
+# DB_USER=my_user
+# DB_PASSWORD=my_password
+# DB_HOST=postgres
+# DB_PORT=5432
+# DB_NAME=mydb
+
+# FRONTEND_ORIGINS=http://localhost:3000
+# ENVIRONMENT=development
+
+# python -c "from backend.db import engine; from backend.models import Base; Base.metadata.create_all(bind=engine)"
+
+# Need S3 information for deploying this.
