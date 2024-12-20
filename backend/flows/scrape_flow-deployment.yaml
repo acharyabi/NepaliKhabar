@@ -1,9 +1,0 @@
-# backend/flows/scrape_flow-deployment.yaml
-name: "my-first-deployment"
-flow_name: "scrape_flow_test"
-work_pool: "default"
-parameters: {}
-schedule:
-  cron: "* * * * *" 
-tags: []
-# labels: {}  # Remove or comment out if causing issues

@@ -1,41 +1,21 @@
-# docker-compose.yml
 services:
-  postgres:
-    image: postgres:14
+  database:
+    image: postgres:16
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: scraper_db
     ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - published: 5432
+        target: 5432
 
-  prefect:
-    image: prefecthq/prefect:3-latest
-    command: prefect server start --host 0.0.0.0 --port 4200
+  adminer:
+    image: adminer
     ports:
-      - "4200:4200"
+      - published: 8080
+        target: 8080
     environment:
-      PREFECT_ORION_UI_API_URL: http://localhost:4200/api
-    volumes:
-      - ./backend:/app
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  prefect-agent:
-    image: prefecthq/prefect:2-latest
-    command: prefect agent start -q default
-    environment:
-      PREFECT_API_URL: http://prefect:4200/api
-    depends_on:
-      - prefect
-
+      ADMINER_DESIGN: dracula
+      ADMINER_DEFAULT_SERVER: postgres
 volumes:
-  pgdata
+  data:

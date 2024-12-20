@@ -1,19 +1,25 @@
 [project]
-name = "scrapingsite"
+name = "scrapingsiteworkflowadded"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aiopg>=1.4.0",
+    "alembic>=1.14.0",
+    "asyncio>=3.4.3",
     "beautifulsoup4>=4.12.3",
-    "datetime>=5.5",
     "fastapi>=0.115.6",
-    "prefect>=3.1.8",
+    "httpx>=0.28.1",
+    "nepali-datetime>=1.0.8.3",
+    "pandas>=2.2.3",
+    "prefect>=3.1.9",
+    "psycopg2>=2.9.10",
     "psycopg2-binary>=2.9.10",
     "pydantic>=2.10.4",
     "pyquery>=2.0.1",
+    "pytest>=8.3.4",
     "python-dotenv>=1.0.1",
+    "redis>=5.2.1",
     "requests>=2.32.3",
     "sqlalchemy>=2.0.36",
     "uvicorn>=0.34.0",
